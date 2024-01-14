@@ -1,0 +1,10 @@
+services:
+  lazyvim:
+    build: .
+    container_name: lazyvim
+    tty: true
+    volumes:
+      # - .:/home/docker/.config/nvim
+      # - ../cobee:/home/docker/cobee
+      - .:/root/.config/nvim
+      - ../cobee:/root/cobee

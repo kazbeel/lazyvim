@@ -1,0 +1,13 @@
+{
+  "unippets": {
+    "description": "Insert Snippets",
+    "prefix": "snip",
+    "body": [
+      "\"${1: name}\": {",
+      "\"prefix\": \"${3: prefix}\",",
+      "\"body\": \"${4: body}\",",
+      "\"description\": \"${2: description}\"",
+      "},"
+    ]
+  }
+}

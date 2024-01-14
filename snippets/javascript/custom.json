@@ -1,0 +1,12 @@
+{
+  "private readonly": {
+    "prefix": "pro",
+    "body": "private readonly $1",
+    "description": "Add a 'private readonly' property"
+  },
+  "destructuring": {
+    "prefix": "dst",
+    "body": "const { ${2:properties} } = ${1:variable};",
+    "description": "Destructuring variable"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "friendly-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "javascript",
+          "typescript"
+        ],
+        "path": "./javascript/custom.json",
+        "description": "Snippets written by me"
+      },
+      {
+        "language": [
+          "javascript",
+          "typescript"
+        ],
+        "path": "./javascript/javascript-code-snippets.json",
+        "description": "Code snippets for JavaScript in ES6 syntax. Taken from https://github.com/xabikos/vscode-javascript/tree/master/snippets"
+      },
+      {
+        "language": [
+          "javascript",
+          "typescript"
+        ],
+        "path": "./javascript/jest.json",
+        "description": "Code snippets for testing framework Jest. Taken from https://github.com/andys8/vscode-jest-snippets/blob/master/snippets/snippets.json"
+      },
+      {
+        "language": [
+          "json"
+        ],
+        "path": "./json.json"
+      }
+    ]
+  }
+}
