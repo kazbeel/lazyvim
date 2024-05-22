@@ -4,7 +4,7 @@ return {
     options = {
       right_mouse_command = false,
       middle_mouse_command = function(n)
-        require("mini.bufremove").delete(n, false)
+        LazyVim.ui.bufremove(n)
       end,
       show_buffer_close_icons = false,
       show_close_icon = false,
