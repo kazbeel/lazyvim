@@ -37,6 +37,9 @@ return {
         source = "always",
       },
     },
+    inlay_hints = {
+      enabled = false,
+    },
     servers = {
       yamlls = {
         settings = {
