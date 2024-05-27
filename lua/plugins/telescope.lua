@@ -9,7 +9,7 @@ return {
       prompt_prefix = " ",
       selection_caret = "❯ ",
       file_ignore_patterns = {
-        ".git",
+        ".git/",
         "__snapshots__",
       },
       path_display = { "truncate" },
@@ -34,11 +34,17 @@ return {
         -- Avoid results when matching on filepaths
         only_sort_text = true,
         file_ignore_patterns = {
-          ".git",
+          ".git/",
           "__snapshots__",
           "package%-lock.json",
           "CHANGELOG.md",
         },
+        additional_args = function()
+          return { "--hidden" }
+        end,
+      },
+      find_files = {
+        hidden = true,
       },
     })
   end,
