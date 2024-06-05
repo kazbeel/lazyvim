@@ -4,11 +4,12 @@ return {
     enabled = false,
   },
   {
-    "catppuccin/nvim",
+    "nvim-pack/nvim-spectre",
     enabled = false,
   },
   {
-    "nvim-pack/nvim-spectre",
+    -- I prefer echasnovski/mini.indentscope
+    "lukas-reineke/indent-blankline.nvim",
     enabled = false,
   },
 }
