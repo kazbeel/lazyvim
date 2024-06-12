@@ -55,58 +55,9 @@ return {
       desc = "Find files",
     },
     {
-      "<leader>ff",
-      Util.telescope("live_grep"),
-      desc = "Find text in files (root dir)",
-    },
-    {
-      "<leader>fF",
-      Util.telescope("live_grep", { cwd = false }),
-      desc = "Find text in files (cwd)",
-    },
-    {
-      "<leader>fo",
-      "<cmd>Telescope oldfiles<CR>",
-      desc = "List previously open files",
-    },
-    {
-      "<leader>fb",
-      "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",
-      desc = "List buffers",
-    },
-    {
-      "<leader>sb",
-      "<cmd>Telescope current_buffer_fuzzy_find<cr>",
-      desc = "Find in current buffer",
-    },
-    {
-      "<leader>fs",
-      function()
-        require("telescope.builtin").lsp_document_symbols({
-          symbols = require("lazyvim.config").get_kind_filter(),
-        })
-      end,
-      desc = "List document symbols in current buffer (LSP)",
-    },
-    {
-      "<leader>fgc",
-      "<cmd>Telescope git_commits<CR>",
-      desc = "Find git commits",
-    },
-    {
-      "<leader>fgC",
+      "<leader>gC",
       "<cmd>Telescope git_bcommits<CR>",
       desc = "Find git commits of buffer",
-    },
-    {
-      "<leader>fr",
-      "<cmd>Telescope registers<cr>",
-      desc = "Find registers",
-    },
-    {
-      "<leader>fd",
-      "<cmd>Telescope diagnostics<cr>",
-      desc = "Find workspace diagnostics",
     },
   },
 }
