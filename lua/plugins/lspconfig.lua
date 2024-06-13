@@ -12,9 +12,7 @@ return {
     keys[#keys + 1] = { "gr", false }
     keys[#keys + 1] = {
       "<F12>",
-      function()
-        require("trouble").toggle("lsp_references")
-      end,
+      "<cmd>Trouble lsp toggle<cr>",
       desc = "References",
     }
 
@@ -58,6 +56,15 @@ return {
       tsserver = {
         preferences = {
           importModuleSpecifierPreference = "project-relative",
+        },
+      },
+      vtsls = {
+        settings = {
+          typescript = {
+            preferences = {
+              importModuleSpecifier = "project-relative",
+            },
+          },
         },
       },
     },
