@@ -3,6 +3,7 @@ return {
   optional = true,
   dependencies = {
     "haydenmeade/neotest-jest",
+    "marilari88/neotest-vitest",
   },
   opts = {
     discovery = {
@@ -12,6 +13,7 @@ return {
       ["neotest-jest"] = {
         jest_test_discovery = true,
       },
+      ["neotest-vitest"] = {},
     },
   },
   keys = {
@@ -39,12 +41,30 @@ return {
     {
       "<leader>tw",
       function()
-        -- require("neotest").run.run({ jestCommand = "npx jest --watch " })
+        local function fileExists(filename)
+          local file = io.open(filename, "r")
+          if file then
+            io.close(file)
+            return true
+          else
+            return false
+          end
+        end
 
-        local jestCommand = require("neotest-jest.jest-util").getJestCommand(vim.fn.expand("%:p:h"))
+        local testCommand
+
+        if fileExists("vitest.config.ts") then
+          local vitestCommand = "vitest --watch"
+          testCommand = { vitestCommand = vitestCommand }
+        else
+          local jestCommand = require("neotest-jest.jest-util").getJestCommand(vim.fn.expand("%:p:h"))
+          testCommand = { jestCommand = jestCommand .. " --watch" }
+        end
+
         require("neotest").run.run({
           vim.fn.expand("%"),
-          jestCommand = jestCommand .. " --watch",
+          testCommand,
+          suite = true,
         })
       end,
       desc = "Test Watch",
