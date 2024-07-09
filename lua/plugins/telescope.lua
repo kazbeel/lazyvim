@@ -21,6 +21,7 @@ return {
           ["<Down>"] = actions.cycle_history_next,
           ["<Up>"] = actions.cycle_history_prev,
           ["<C-->"] = require("telescope.actions.layout").toggle_preview,
+          ["<C-q>"] = require("trouble.sources.telescope").open,
         },
       },
       layout_config = {
