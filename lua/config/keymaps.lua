@@ -30,8 +30,8 @@ set_keymap("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
 set_keymap("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" })
 set_keymap("n", "<leader>bq", "<cmd>q<CR>", { desc = "Quit the current window" })
 
--- Clear search highlight
-set_keymap("n", "<ESC>", "<cmd>nohlsearch<CR>", { desc = "Clear highlighs" })
+-- Clear search highlight and save file
+set_keymap("n", "<ESC>", "<cmd>w | nohlsearch<CR>", { desc = "Clear highlighs" })
 
 set_keymap("n", "yA", "<cmd>%y+<CR>", { desc = "Copy the whole file content" })
 set_keymap("n", "vA", "ggVG", { desc = "Select the whole file content" })
