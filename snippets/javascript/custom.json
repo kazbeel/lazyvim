@@ -8,5 +8,20 @@
     "prefix": "dst",
     "body": "const { ${2:properties} } = ${1:variable};",
     "description": "Destructuring variable"
+  },
+  "export class": {
+    "prefix": "ec",
+    "body": "export class ${1:Class} {\n\t$2\n}",
+    "description": "Declare exported class"
+  },
+  "export class extends": {
+    "prefix": "ece",
+    "body": "export class ${1:Class} extends ${2:ExtendedClass} {\n\t$3\n}",
+    "description": "Declare exported and extends class"
+  },
+  "export class implements": {
+    "prefix": "eci",
+    "body": "export class ${1:Class} implements ${2:Interface} {\n\t$3\n}",
+    "description": "Declare exported class that implements interface"
   }
 }

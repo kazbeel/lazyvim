@@ -55,12 +55,12 @@
     "description": "Export default function in ES6 syntax"
   },
   "exportClass": {
-    "prefix": "ecl",
+    "prefix": "edc",
     "body": "export default class ${1:className} {\n\t$0\n};\n",
     "description": "Export default class in ES6 syntax"
   },
   "exportClassExtends": {
-    "prefix": "ece",
+    "prefix": "edce",
     "body": "export default class ${1:className} extends ${2:baseclassName} {\n\t$0\n};\n",
     "description": "Export default class which extends a base one in ES6 syntax"
   },
