@@ -45,6 +45,20 @@ set_keymap("n", "N", "Nzzzv")
 -- Search and Replace
 set_keymap("n", "c.", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "Search and replace word under cursor" })
 
+-- Resize windows (only for macOS)
+if vim.fn.has("macunix") == 1 then
+  -- Remove LazyVim keymaps
+  vim.keymap.del("n", "<C-Up>")
+  vim.keymap.del("n", "<C-Down>")
+  vim.keymap.del("n", "<C-Left>")
+  vim.keymap.del("n", "<C-Right>")
+
+  set_keymap("n", "<leader>wk", "<cmd>resize +10<Cr>", { desc = "Increase Window Height" })
+  set_keymap("n", "<leader>wj", "<cmd>resize -10<Cr>", { desc = "Decrease Window Height" })
+  set_keymap("n", "<leader>wh", "<cmd>vertical resize -10<Cr>", { desc = "Decrease Window Width" })
+  set_keymap("n", "<leader>wl", "<cmd>vertical resize +10<Cr>", { desc = "Increase Window Width" })
+end
+
 -- Delete better indenting keymaps
 vim.keymap.del("v", "<")
 vim.keymap.del("v", ">")
