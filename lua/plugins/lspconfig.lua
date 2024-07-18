@@ -2,20 +2,6 @@ return {
   "neovim/nvim-lspconfig",
   optional = true,
   init = function()
-    local keys = require("lazyvim.plugins.lsp.keymaps").get()
-
-    -- Replace hover
-    keys[#keys + 1] = { "K", false }
-    keys[#keys + 1] = { "gh", vim.lsp.buf.hover, desc = "Hover" }
-
-    -- Replace LSP references ("gr" conflicts with "vim-scripts/ReplaceWithRegister")
-    keys[#keys + 1] = { "gr", false }
-    keys[#keys + 1] = {
-      "<F12>",
-      "<cmd>Trouble lsp toggle<cr>",
-      desc = "References",
-    }
-
     -- Show diagnostics when cursor is on the line
     vim.api.nvim_create_autocmd("CursorHold", {
       callback = function()
@@ -25,8 +11,27 @@ return {
       end,
     })
   end,
-  opts = {
-    diagnostics = {
+  opts = function(_, opts)
+    ---
+    -- Keymaps
+    ---
+    local keys = require("lazyvim.plugins.lsp.keymaps").get()
+
+    -- Replace hover
+    keys[#keys + 1] = { "K", false }
+    keys[#keys + 1] = { "gh", vim.lsp.buf.hover, desc = "Hover" }
+
+    -- Add F12 to find all references (same as in VSCode)
+    keys[#keys + 1] = {
+      "<F12>",
+      "<cmd>Trouble lsp_references<CR>",
+      desc = "References",
+    }
+
+    ---
+    -- Configuration
+    ---
+    opts.diagnostics = {
       virtual_text = false,
       float = {
         focusable = false,
@@ -34,11 +39,11 @@ return {
         border = "rounded",
         source = "always",
       },
-    },
-    inlay_hints = {
+    }
+    opts.inlay_hints = {
       enabled = false,
-    },
-    servers = {
+    }
+    opts.servers = {
       yamlls = {
         settings = {
           yaml = {
@@ -67,6 +72,6 @@ return {
           },
         },
       },
-    },
-  },
+    }
+  end,
 }
