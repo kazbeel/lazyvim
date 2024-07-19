@@ -8,10 +8,6 @@ return {
     opts.defaults = vim.tbl_deep_extend("force", opts.defaults or {}, {
       prompt_prefix = " ",
       selection_caret = "❯ ",
-      file_ignore_patterns = {
-        ".git/",
-        "__snapshots__",
-      },
       path_display = { "truncate" },
       mappings = {
         i = {
@@ -27,6 +23,9 @@ return {
       layout_config = {
         width = 0.90,
         height = 0.90,
+        horizontal = {
+          preview_width = 100,
+        },
       },
     })
 
