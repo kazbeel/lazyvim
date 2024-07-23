@@ -46,6 +46,7 @@ return {
     opts.servers = {
       yamlls = {
         settings = {
+          redhat = { telemetry = { enabled = false } },
           yaml = {
             customTags = {
               -- Gitlab CI
@@ -54,6 +55,9 @@ return {
               "!secret",
               "!include_dir_merge_list",
               "!include_dir_merge_named",
+            },
+            schemas = {
+              kubernetes = { "k8s**.{yml,yaml}", "kube*/*.{yml,yaml}" },
             },
           },
         },
