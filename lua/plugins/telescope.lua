@@ -1,5 +1,3 @@
-local Util = require("lazyvim.util")
-
 return {
   "nvim-telescope/telescope.nvim",
   opts = function(_, opts)
@@ -33,18 +31,42 @@ return {
       live_grep = {
         -- Avoid results when matching on filepaths
         only_sort_text = true,
-        file_ignore_patterns = {
-          ".git/",
-          "__snapshots__",
-          "package%-lock.json",
-          "CHANGELOG.md",
-        },
+        file_ignore_patterns = {},
+        -- We use fd for finding files
         additional_args = function()
-          return { "--hidden" }
+          return {
+            "--hidden",
+            "--unrestricted",
+            "--glob=!**/.git/*",
+            "--glob=!**/.idea/*",
+            "--glob=!**/.vscode/*",
+            "--glob=!**/node_modules/*",
+            "--glob=!**/dist/*",
+            "--glob=!**/coverage/*",
+            "--glob=!**/.husky/*",
+            "--glob=!**/package-lock.json",
+            "--glob=!**/CHANGELOG*",
+            "--glob=!**/__snapshots__",
+          }
         end,
       },
       find_files = {
         hidden = true,
+        no_ignore = true,
+        -- We use ripgrep (rg) for finding content in files
+        find_command = {
+          "rg",
+          "--files",
+          "--glob=!**/.git/*",
+          "--glob=!**/.idea/*",
+          "--glob=!**/.vscode/*",
+          "--glob=!**/node_modules/*",
+          "--glob=!**/dist/*",
+          "--glob=!**/coverage/*",
+          "--glob=!**/.husky/*",
+          "--glob=!**/package-lock.json",
+          "--glob=!**/__snapshots__",
+        },
       },
     })
   end,
