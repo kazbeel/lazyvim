@@ -26,6 +26,24 @@ return {
         ["s"] = "vsplit_with_window_picker",
       },
     },
+    filesystem = {
+      filtered_items = {
+        visible = true,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+        hide_by_pattern = {
+          ".gitkeep",
+          "node_modules",
+        },
+        never_show_by_pattern = {
+          ".git",
+          ".svn",
+          ".hg",
+          "CVS",
+          ".DS_Store",
+        },
+      },
+    },
     popup_border_style = "rounded",
     default_component_configs = {
       file_size = { enabled = false },
