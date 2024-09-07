@@ -62,7 +62,7 @@ return {
           },
         },
       },
-      tsserver = {
+      ts_ls = {
         preferences = {
           importModuleSpecifierPreference = "project-relative",
         },
