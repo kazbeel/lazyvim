@@ -48,6 +48,9 @@ return {
         settings = {
           redhat = { telemetry = { enabled = false } },
           yaml = {
+            format = {
+              singleQuote = false,
+            },
             customTags = {
               -- Gitlab CI
               "!reference sequence",
@@ -62,11 +65,11 @@ return {
           },
         },
       },
-      ts_ls = {
-        preferences = {
-          importModuleSpecifierPreference = "project-relative",
-        },
-      },
+      -- ts_ls = {
+      --   preferences = {
+      --     importModuleSpecifierPreference = "project-relative",
+      --   },
+      -- },
       vtsls = {
         settings = {
           typescript = {
