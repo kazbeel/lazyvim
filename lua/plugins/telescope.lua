@@ -47,6 +47,7 @@ return {
             "--glob=!**/package-lock.json",
             "--glob=!**/CHANGELOG*",
             "--glob=!**/__snapshots__",
+            "--glob=!**/.scannerwork",
           }
         end,
       },
@@ -66,6 +67,7 @@ return {
           "--glob=!**/.husky/*",
           "--glob=!**/package-lock.json",
           "--glob=!**/__snapshots__",
+          "--glob=!**/.scannerwork",
         },
       },
     })
