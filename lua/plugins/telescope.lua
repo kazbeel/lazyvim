@@ -48,6 +48,8 @@ return {
             "--glob=!**/CHANGELOG*",
             "--glob=!**/__snapshots__",
             "--glob=!**/.scannerwork",
+            "--glob=!**/.webpack",
+            "--glob=!**/.data",
           }
         end,
       },
@@ -68,6 +70,8 @@ return {
           "--glob=!**/package-lock.json",
           "--glob=!**/__snapshots__",
           "--glob=!**/.scannerwork",
+          "--glob=!**/.webpack",
+          "--glob=!**/.data",
         },
       },
     })
