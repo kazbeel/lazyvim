@@ -4,6 +4,11 @@
     "description": "afterAll function is called once after all specs",
     "prefix": "aa"
   },
+  "afterAll:async": {
+    "body": "afterAll(async () => {\n\t$0\n});",
+    "description": "afterAll with async function is called once after all specs",
+    "prefix": "aaa"
+  },
   "afterEach": {
     "body": "afterEach(() => {\n\t$0\n});",
     "description": "afterEach function is called once after each spec",
