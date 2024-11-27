@@ -26,8 +26,9 @@ set_keymap("n", "Y", "yg_", { desc = "Yank to the end of the line" })
 set_keymap("n", "U", "<C-r>", { desc = "Redo" })
 
 -- Navigate buffers
-set_keymap("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
-set_keymap("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" })
+-- Defined in bufferline because it respects focus order after tabs are moved (b< b>)
+-- set_keymap("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
+-- set_keymap("n", "<S-Tab>", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" })
 set_keymap("n", "<leader>bq", "<cmd>q<CR>", { desc = "Quit the current window" })
 
 -- Clear search highlight and save file
