@@ -21,5 +21,7 @@ return {
   keys = {
     { "<leader>b<", "<cmd>BufferLineMovePrev<CR>", desc = "Move current buffer to the left in the buffer line" },
     { "<leader>b>", "<cmd>BufferLineMoveNext<CR>", desc = "Move current buffer to the right in the buffer line" },
+    { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Go to next buffer" },
+    { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Go to previous buffer" },
   },
 }
