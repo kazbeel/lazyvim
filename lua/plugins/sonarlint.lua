@@ -1,4 +1,5 @@
 return {
+  enabled = false,
   url = "https://gitlab.com/schrieveslaach/sonarlint.nvim",
   dependencies = {
     "nvim-lspconfig",
