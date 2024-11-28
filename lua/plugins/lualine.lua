@@ -33,9 +33,27 @@ return {
       return ""
     end
 
+    local icons = LazyVim.config.icons
+
     opts.options.section_separators = { left = "", right = "" }
     opts.options.component_separators = { left = "│", right = "│" }
     opts.sections.lualine_a = { mode }
+    opts.sections.lualine_c = {
+      -- Everything is copied from LazyVim expect for the path of the file
+      LazyVim.lualine.root_dir(),
+      {
+        "diagnostics",
+        symbols = {
+          error = icons.diagnostics.Error,
+          warn = icons.diagnostics.Warn,
+          info = icons.diagnostics.Info,
+          hint = icons.diagnostics.Hint,
+        },
+      },
+      { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+      -- I prefer the full relative path
+      { "filename", path = 1 },
+    }
     opts.sections.lualine_y = { lsp_status }
     opts.sections.lualine_z = { progress, location }
   end,
