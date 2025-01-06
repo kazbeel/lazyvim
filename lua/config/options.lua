@@ -5,3 +5,6 @@ vim.opt.undodir = "/tmp"
 
 -- Disable the current document symbols location from Trouble in lualine
 vim.g.trouble_lualine = false
+
+-- Disable Snacks animations
+vim.g.snacks_animate = false
