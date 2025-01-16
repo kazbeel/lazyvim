@@ -78,7 +78,7 @@ return {
       },
     })
   end,
-  keys = {
+  _keys = {
     {
       "<C-p>",
       "<cmd>Telescope find_files hidden=true<CR>",
