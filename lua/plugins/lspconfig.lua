@@ -28,6 +28,9 @@ return {
       desc = "References",
     }
 
+    -- Restart all LSP servers
+    keys[#keys + 1] = { "<space>xr", "<cmp>LspRestart<CR>", desc = "Restart all LSP servers" }
+
     ---
     -- Configuration
     ---
