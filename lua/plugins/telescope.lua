@@ -50,6 +50,7 @@ return {
             "--glob=!**/.scannerwork",
             "--glob=!**/.webpack",
             "--glob=!**/.data",
+            "--glob=!**/venv",
           }
         end,
       },
@@ -72,6 +73,7 @@ return {
           "--glob=!**/.scannerwork",
           "--glob=!**/.webpack",
           "--glob=!**/.data",
+          "--glob=!**/venv",
         },
       },
     })
