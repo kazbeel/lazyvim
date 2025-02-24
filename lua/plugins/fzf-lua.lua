@@ -19,18 +19,36 @@ return {
       cwd_header = false,
       cwd_prompt = false,
       actions = false,
+      fzf_opts = {
+        ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history-files",
+      },
     }
+
     opts.git = {
       cwd_header = false,
     }
+
     opts.grep = {
       no_header = true,
       actions = {
         ["ctrl-r"] = { actions.toggle_ignore },
       },
+      fzf_opts = {
+        ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history-grep",
+      },
     }
+
     opts.tags = {
       no_header = true,
+    }
+
+
+    -- TODO: Add keymap to toggle the preview
+    opts.keymap = {
+      fzf = {
+        ["down"] = "next-history",
+        ["up"] = "prev-history",
+      },
     }
   end,
   keys = {
