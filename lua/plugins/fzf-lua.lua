@@ -3,6 +3,10 @@ return {
   opts = function(_, opts)
     local actions = require("fzf-lua").actions
 
+    opts.fzf_opts = {
+      ["--cycle"] = true,
+    }
+
     opts.winopts = {
       height = 0.90,
       width = 0.90,
