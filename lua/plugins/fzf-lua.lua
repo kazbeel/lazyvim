@@ -1,7 +1,7 @@
 return {
   "ibhagwan/fzf-lua",
   opts = function(_, opts)
-    local actions = require("fzf-lua").actions
+    local fzf = require("fzf-lua")
 
     opts.fzf_opts = {
       ["--cycle"] = true,
@@ -14,6 +14,7 @@ return {
         horizontal = "right:45%",
       },
     }
+
     opts.files = {
       fd_opts = [[--color=never -t f -H -I -L -E .git -E .idea -E .vscode -E node_modules -E dist -E coverage -E .husky -E __snapshots__ -E .scannerwork -E .webpack -E .data]],
       cwd_header = false,
@@ -31,7 +32,7 @@ return {
     opts.grep = {
       no_header = true,
       actions = {
-        ["ctrl-r"] = { actions.toggle_ignore },
+        ["ctrl-r"] = { fzf.actions.toggle_ignore },
       },
       fzf_opts = {
         ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history-grep",
@@ -42,6 +43,10 @@ return {
       no_header = true,
     }
 
+    -- Trouble
+    if LazyVim.has("trouble.nvim") then
+      fzf.config.defaults.actions.files["ctrl-q"] = require("trouble.sources.fzf").actions.open
+    end
 
     -- TODO: Add keymap to toggle the preview
     opts.keymap = {
