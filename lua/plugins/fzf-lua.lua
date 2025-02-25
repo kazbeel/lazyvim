@@ -50,6 +50,9 @@ return {
 
     -- TODO: Add keymap to toggle the preview
     opts.keymap = {
+      builtin = {
+        ["<C-->"] = "toggle-preview",
+      },
       fzf = {
         ["down"] = "next-history",
         ["up"] = "prev-history",
