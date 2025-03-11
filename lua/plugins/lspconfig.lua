@@ -63,7 +63,7 @@ return {
               "!include_dir_merge_named",
             },
             schemas = {
-              kubernetes = { "k8s**.{yml,yaml}", "kube*/*.{yml,yaml}" },
+              kubernetes = { "k8s*.{yml,yaml}", "kube*/*.{yml,yaml}" },
             },
           },
         },
@@ -79,7 +79,23 @@ return {
             preferences = {
               importModuleSpecifier = "project-relative",
             },
+            format = {
+              -- Disable formatter. We have prettier or biome for that
+              enable = false,
+            },
           },
+          javascript = {
+            format = {
+              -- Disable formatter. We have prettier or biome for that
+              enable = false,
+            },
+          },
+        },
+      },
+      eslint = {
+        settings = {
+          -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
+          workingDirectory = { mode = "auto" },
         },
       },
       pyright = {},

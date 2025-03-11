@@ -24,6 +24,7 @@ set_keymap("n", "<leader>o", "o<Esc>", { desc = "Add [count] empty line below" }
 
 set_keymap("n", "Y", "yg_", { desc = "Yank to the end of the line" })
 set_keymap("n", "U", "<C-r>", { desc = "Redo" })
+set_keymap("v", "p", '"_dP', { desc = "Paste (preserves yanked)" })
 
 -- Navigate buffers
 -- Defined in bufferline because it respects focus order after tabs are moved (b< b>)
