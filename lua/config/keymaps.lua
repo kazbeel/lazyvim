@@ -70,3 +70,81 @@ vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del({ "n", "t" }, "<c-/>")
 vim.keymap.del({ "n", "t" }, "<c-_>")
+
+if vim.g.vscode then
+  local vscode = require("vscode")
+
+  -- In VSCode we work with tabs instead of buffers
+  set_keymap("n", "<Tab>", "<cmd>Tabnext<cr>", { desc = "Go to next tab" })
+  set_keymap("n", "<S-Tab>", "<cmd>Tabprevious<cr>", { desc = "Go to previous tab" })
+  set_keymap("n", "<leader>bd", "<cmd>Tabclose<cr>", { desc = "Delete tab" })
+
+  set_keymap("n", "<leader>bq", function()
+    vscode.action("workbench.action.closeEditorsAndGroup")
+  end, { desc = "Delete group of tabs" })
+
+  set_keymap("n", "gi", function()
+    vscode.action("editor.action.goToImplementation")
+  end, { desc = "Delete the current tab" })
+
+  set_keymap("n", "<leader>sc", function()
+    vscode.action("search.action.clearSearchResults")
+    vscode.action("workbench.action.focusActiveEditorGroup")
+  end, { desc = "Clear global search results" })
+
+  set_keymap("n", "]h", function()
+    vscode.action("workbench.action.editor.nextChange")
+  end, { desc = "Go to next hunk" })
+  set_keymap("n", "[h", function()
+    vscode.action("workbench.action.editor.previousChange")
+  end, { desc = "Go to previous hunk" })
+
+  set_keymap("n", "]x", function()
+    vscode.action("workbench.action.compareEditor.nextChange")
+  end, { desc = "Go to next difference" })
+  set_keymap("n", "[x", function()
+    vscode.action("workbench.action.compareEditor.previousChange")
+  end, { desc = "Go to previous difference" })
+
+  set_keymap("n", "]d", function()
+    vscode.action("editor.action.marker.next")
+  end, { desc = "Go to next info diagnosic" })
+  set_keymap("n", "[d", function()
+    vscode.action("editor.action.marker.prev")
+  end, { desc = "Go to previous info diagnosic" })
+  set_keymap("n", "]w", function()
+    vscode.action("editor.action.marker.next")
+  end, { desc = "Go to next warning diagnostic" })
+  set_keymap("n", "[w", function()
+    vscode.action("editor.action.marker.prev")
+  end, { desc = "Go to previous warning diagnostic" })
+  set_keymap("n", "]e", function()
+    vscode.action("editor.action.marker.next")
+  end, { desc = "Go to next error diagnosic" })
+  set_keymap("n", "[e", function()
+    vscode.action("editor.action.marker.prev")
+  end, { desc = "Go to previous error diagnosic" })
+
+  set_keymap("n", "<leader>cr", function()
+    vscode.action("editor.action.rename")
+  end, { desc = "Rename object" })
+
+  set_keymap("n", "<leader>/", function()
+    vscode.action("workbench.action.findInFiles")
+  end, { desc = "Find text in files" })
+  set_keymap("n", "<leader>ff", function()
+    vscode.action("workbench.action.findInFiles")
+  end, { desc = "Find text in files" })
+
+  set_keymap("n", "<leader><space>", function()
+    vscode.action("workbench.action.quickOpen")
+  end, { desc = "Find files" })
+
+  set_keymap("n", "<leader>uw", function()
+    vscode.action("editor.action.toggleWordWrap")
+  end, { desc = "Toggle word wrap" })
+
+  set_keymap("n", "<leader>gg", function()
+    vscode.action("workbench.view.scm")
+  end, { desc = "Open SCM" })
+end
