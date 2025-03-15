@@ -18,3 +18,4 @@ vim.g.lazyvim_python_ruff = "ruff"
 -- Avoid conflicts between Prettier and Biome
 vim.g.lazyvim_prettier_needs_config = true
 
+vim.g.lazyvim_picker = "fzf"

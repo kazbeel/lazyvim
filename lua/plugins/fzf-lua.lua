@@ -2,6 +2,8 @@ return {
   "ibhagwan/fzf-lua",
   opts = function(_, opts)
     local fzf = require("fzf-lua")
+    local actions = fzf.actions
+    local config = fzf.config
 
     opts.fzf_opts = {
       ["--cycle"] = true,
@@ -15,51 +17,60 @@ return {
       },
     }
 
-    opts.files = {
-      fd_opts = [[--color=never -t f -H -I -L -E .git -E .idea -E .vscode -E node_modules -E dist -E coverage -E .husky -E __snapshots__ -E .scannerwork -E .webpack -E .data]],
-      cwd_header = false,
-      cwd_prompt = false,
-      actions = false,
+    local fd_exclusions = {
+      ".vscode",
+      ".idea",
+      "node_modules",
+      "dist",
+      "coverage",
+      ".husky",
+      "__snapshots__",
+      ".scannerwork",
+      ".webpack",
+      ".data",
+      ".git",
+    }
+
+    local fd_opts = "--color=never -t f -H -I -L"
+
+    for _, exclusion in ipairs(fd_exclusions) do
+      fd_opts = fd_opts .. " -E " .. exclusion
+    end
+
+    opts.files = vim.tbl_deep_extend("force", opts.files, {
+      -- fd_opts = [[--color=never -t f -H -I -L -E .git -E .idea -E .vscode -E node_modules -E dist -E coverage -E .husky -E __snapshots__ -E .scannerwork -E .webpack -E .data]],
+      fd_opts = fd_opts,
       fzf_opts = {
         ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history-files",
       },
-    }
-
-    opts.git = {
-      cwd_header = false,
-    }
+      actions = {
+        ["ctrl-r"] = { actions.toggle_ignore },
+        ["ctrl-h"] = { actions.toggle_hidden },
+      },
+    })
 
     opts.grep = {
-      no_header = true,
       actions = {
-        ["ctrl-r"] = { fzf.actions.toggle_ignore },
+        ["ctrl-r"] = { actions.toggle_ignore },
+        ["ctrl-h"] = { actions.toggle_hidden },
       },
       fzf_opts = {
         ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history-grep",
       },
     }
 
-    opts.tags = {
-      no_header = true,
-    }
+    -- Keymaps within FzfLua
 
-    -- Trouble
+    config.defaults.keymap.builtin["<C-->"] = "toggle-preview"
+    config.defaults.keymap.fzf["down"] = "next-history"
+    config.defaults.keymap.fzf["up"] = "prev-history"
+
+    -- Move selected files to Trouble instead of Quickfix
     if LazyVim.has("trouble.nvim") then
-      fzf.config.defaults.actions.files["ctrl-q"] = require("trouble.sources.fzf").actions.open
+      config.defaults.actions.files["ctrl-q"] = require("trouble.sources.fzf").actions.open
     end
-
-    -- TODO: Add keymap to toggle the preview
-    opts.keymap = {
-      builtin = {
-        ["<C-->"] = "toggle-preview",
-      },
-      fzf = {
-        ["down"] = "next-history",
-        ["up"] = "prev-history",
-      },
-    }
   end,
   keys = {
-    { "<C-p>", require("fzf-lua").files, desc = "Find files" },
+    { "<C-p>", LazyVim.pick("files"), desc = "Find files (Root Dir)" },
   },
 }
