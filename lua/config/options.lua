@@ -14,3 +14,7 @@ vim.g.snacks_animate = false
 vim.g.lazyvim_python_lsp = "pyright"
 -- Set to "ruff_lsp" to use the old LSP implementation version.
 vim.g.lazyvim_python_ruff = "ruff"
+
+-- Avoid conflicts between Prettier and Biome
+vim.g.lazyvim_prettier_needs_config = true
+
