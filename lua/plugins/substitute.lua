@@ -1,6 +1,9 @@
 return {
   "gbprod/substitute.nvim",
-  opts = {},
+  vscode = true,
+  opts = {
+    -- The opts is necessary even empty
+  },
   keys = {
     {
       "<leader>r",
