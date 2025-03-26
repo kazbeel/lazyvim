@@ -181,6 +181,15 @@ if vim.g.vscode then
   set_keymap("n", "<leader>gg", function()
     vscode.action("workbench.view.scm")
   end, { desc = "Open SCM" })
+  set_keymap("n", "<leader>ghd", function()
+    vscode.action("gitlens.diffLineWithPrevious")
+  end, { desc = "Diff Changes" })
+  set_keymap("n", "<leader>ghr", function()
+    vscode.action("git.revertSelectedRanges")
+  end, { desc = "Revert Change" })
+  set_keymap("n", "<leader>ghs", function()
+    vscode.action("git.stageSelectedRanges")
+  end, { desc = "Stage Change" })
 
   -- SEARCH
   set_keymap("n", "<leader>/", function()
