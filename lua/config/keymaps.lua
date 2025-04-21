@@ -81,12 +81,12 @@ if vim.g.vscode then
 
   -- Cursor
   -- This "hack" is necessary to avoid the folds to open when moving the cursor over them
-  set_keymap("n", "j", function()
-    vscode.action("cursorDown")
-  end, { desc = "Cursor Down" })
-  set_keymap("n", "k", function()
-    vscode.action("cursorUp")
-  end, { desc = "Cursor Up" })
+  -- set_keymap("n", "j", function()
+  --   vscode.action("cursorDown")
+  -- end, { desc = "Cursor Down" })
+  -- set_keymap("n", "k", function()
+  --   vscode.action("cursorUp")
+  -- end, { desc = "Cursor Up" })
 
   -- Folding
   set_keymap("n", "za", function()
