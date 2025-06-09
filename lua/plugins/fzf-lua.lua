@@ -29,6 +29,10 @@ return {
       ".webpack",
       ".data",
       ".git",
+      "package-lock.json",
+      ".venv",
+      "venv",
+      "__pycache__",
     }
 
     local fd_opts = "--color=never -t f -H -I -L"
