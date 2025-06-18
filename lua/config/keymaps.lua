@@ -120,9 +120,18 @@ if vim.g.vscode then
     vscode.action("editor.gotoPreviousFold")
   end, { desc = "Go to the Previous Fold" })
 
+  -- Editors / Buffers
   set_keymap("n", "<leader>bq", function()
     vscode.action("workbench.action.closeEditorsAndGroup")
   end, { desc = "Delete group of tabs" })
+  set_keymap("n", "<leader>bp", function()
+    local is_pinned = vscode.eval("return vscode.window.tabGroups.activeTabGroup.activeTab.isPinned")
+    if not is_pinned then
+      vscode.action("workbench.action.pinEditor")
+    else
+      vscode.action("workbench.action.unpinEditor")
+    end
+  end, { desc = "Toggle pin tab" })
 
   set_keymap("n", "gi", function()
     vscode.action("editor.action.goToImplementation")
