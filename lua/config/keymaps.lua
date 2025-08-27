@@ -75,8 +75,8 @@ if vim.g.vscode then
   local vscode = require("vscode")
 
   -- In VSCode we work with tabs instead of buffers
-  set_keymap("n", "<Tab>", "<cmd>Tabnext<cr>", { desc = "Go to next tab" })
-  set_keymap("n", "<S-Tab>", "<cmd>Tabprevious<cr>", { desc = "Go to previous tab" })
+  -- set_keymap("n", "<Tab>", "<cmd>Tabnext<cr>", { desc = "Go to next tab" })
+  -- set_keymap("n", "<S-Tab>", "<cmd>Tabprevious<cr>", { desc = "Go to previous tab" })
   set_keymap("n", "<leader>bd", "<cmd>Tabclose<cr>", { desc = "Delete tab" })
 
   -- Cursor
