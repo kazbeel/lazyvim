@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.indentscope",
+  "nvim-mini/mini.indentscope",
   opts = function(_, opts)
     opts.draw = {
       animation = require("mini.indentscope").gen_animation.none(),
