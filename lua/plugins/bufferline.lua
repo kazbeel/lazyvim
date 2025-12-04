@@ -1,14 +1,5 @@
 return {
   "akinsho/bufferline.nvim",
-  -- This is a temporaty fix until LazyVim integrates the breaking changes from catppuccin
-  -- @See https://github.com/LazyVim/LazyVim/pull/6354
-  -- @See https://github.com/LazyVim/LazyVim/issues/6355
-  init = function()
-    local bufline = require("catppuccin.groups.integrations.bufferline")
-    function bufline.get()
-      return bufline.get_theme()
-    end
-  end,
   opts = {
     options = {
       right_mouse_command = false,
